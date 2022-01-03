@@ -1,0 +1,11 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "admin",
+  "password": "admin",
+  "database": "lion-market",
+  "synchronize": true,
+  "entities": ["src/entities/*.ts"],
+  "migrations": ["src/migrations/*.ts"]
+}
