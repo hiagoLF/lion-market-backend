@@ -32,3 +32,33 @@
   token: String
 }
 ```
+
+###### Products
+
+```js
+// Find Products Paginated
+// Method: GET
+// Endpoint: /product
+// Query
+{
+  page: Number
+  title: String
+}
+// Header: token: "Bearer token"
+// Response
+{
+  pagination: {
+    currentPage: Number,
+    pagesNumber: Number,
+  },
+  data: {
+    id: String
+    title: String,
+    description: String,
+    price: Number,
+    imageUrl: String,
+    created_at: Date
+    updated_at: Date;
+  }[]
+}
+```
