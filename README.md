@@ -61,4 +61,20 @@
     updated_at: Date;
   }[]
 }
+
+
+// Create Product
+// Method: POST
+// Endpoint: /product
+// Header: token: "Bearer token"
+// Body
+{
+  title: String;
+  description: String;
+  price: Number;
+}
+// Response
+{
+  id: String
+}
 ```

@@ -1,0 +1,17 @@
+import { celebrate, Joi, Segments } from "celebrate";
+
+export const findProductsValidator = celebrate({
+  [Segments.QUERY]: Joi.object().keys({
+    page: Joi.number().required(),
+    title: Joi.string(),
+  }),
+});
+
+
+export const createProductValidator = celebrate({
+  [Segments.BODY]: Joi.object().keys({
+    title: Joi.string().min(2).max(40).required(),
+    description: Joi.string().min(5).max(300).required(),
+    price: Joi.number().required()
+  })
+})

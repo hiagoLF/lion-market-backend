@@ -1,12 +1,17 @@
 import { Request, Response } from "express";
-import { getCustomRepository, getRepository, Like } from "typeorm";
-import { ProductRepository } from "../repositorires/ProductRepository";
+import { createProduct } from "../services/product/createProduct";
+import { findProducts } from "../services/product/findProducts";
 
 export const productControllers = {
   findProductsPaginated: async (req: Request, res: Response) => {
     const { title, page } = req.query;
-    const productRepo = getCustomRepository(ProductRepository);
-    const products = await productRepo.findAllPaginated(Number(page), title ? String(title) : '');
+    const products = await findProducts(Number(page), title ? String(title) : '')
     return res.json(products);
+  },
+
+  createProduct: async (req: Request, res: Response) => {
+    const data = req.body
+    const newProduct = await createProduct(data)
+    return res.status(200).json({id: newProduct.id})
   },
 };

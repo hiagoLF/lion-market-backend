@@ -7,10 +7,3 @@ export const loginUserValidator = celebrate({
   }),
 });
 
-export const createProductValidator = celebrate({
-  [Segments.QUERY]: Joi.object().keys({
-    page: Joi.number().required(),
-    title: Joi.string()
-  }),
-});
-

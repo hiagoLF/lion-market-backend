@@ -14,7 +14,7 @@ export class Product {
   @Column()
   price: number;
 
-  @Column()
+  @Column({nullable: true})
   imageUrl: string;
 
   @CreateDateColumn()
