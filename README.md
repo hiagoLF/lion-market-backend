@@ -1,3 +1,37 @@
+### Lion Market Backend
+NodeJs Api to built to receive requests from [lion-market](https://github.com/hiagoLF/lion-market) mobile app
+
+* Main Tecnologies
+  - express: Framework for server, routes and middlewares generations
+  - aws-sdk: AWS Node integration
+  - multer: Files Upload
+  - multer-s3: FIles Upload to AWS
+  - bcrypt: Encrypting passwords
+  - celebrate: Middleware for requests validation
+  - jsonwebtoken: JWT sessions
+  - typeorm: ORM for database
+  - pg: Postgres driver for Typeorm
+
+### Running
+- First, do not forget to rename env.example to .env and place enviroment variables in it
+- The project was built using NodeJs v16.13.1 therefore try to run in the most compatible version
+```bash
+# Install dependencies
+yarn install
+
+# Run the project in dev mode
+yarn dev
+
+# Generate a bundle and run in production mode
+yarn start
+
+# You can seed your database with fictional data by running the command
+yarn seed:run
+# This command will generate 1000 products lines in database
+```
+
+- The server will be running in port 8001
+
 ### Routes
 
 ###### User
