@@ -39,3 +39,9 @@ export const deleteProductValidator = celebrate({
     productId: Joi.string().required(),
   }),
 });
+
+export const updateProductImageValidator = celebrate({
+  [Segments.PARAMS]: Joi.object().keys({
+    productId: Joi.string().required(),
+  }),
+});

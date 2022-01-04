@@ -113,4 +113,15 @@
 // Endpoint: /product/:productId
 // Header: token: "Bearer token"
 // Response: Status 200
+
+
+// Update Image
+// Method: PUT
+// Endpoint: /product/image/:productId
+// Header: token: "Bearer token"
+// Multipart Form
+{
+  productImage: Image;
+}
+// Response: Status 200
 ```

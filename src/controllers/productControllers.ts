@@ -1,9 +1,11 @@
 import { Request, Response } from "express";
+import AppError from "../errors/AppError";
 import { createProduct } from "../services/product/createProduct";
 import { deleteProductById } from "../services/product/deleteProductById";
 import { findProductById } from "../services/product/findProductById";
 import { findProducts } from "../services/product/findProducts";
 import { updateProduct } from "../services/product/updateProduct";
+import { updateProductImageUrl } from "../services/product/updateProductImageUrl";
 
 export const productControllers = {
   findProductsPaginated: async (req: Request, res: Response) => {
@@ -37,6 +39,15 @@ export const productControllers = {
   deleteProductById: async (req: Request, res: Response) => {
     const { productId } = req.params;
     await deleteProductById(productId);
+    return res.sendStatus(200);
+  },
+
+  updateProductImage: async (req: Request, res: Response) => {
+    if (!req.file) throw new AppError("Image not uploaded");
+    const { productId } = req.params;
+    // @ts-ignore
+    const imageUrl = req.file.location
+    await updateProductImageUrl(productId, imageUrl);
     return res.sendStatus(200)
   },
 };
