@@ -77,4 +77,17 @@
 {
   id: String
 }
+
+
+// Update Product
+// Method: PATCH
+// Endpoint: /product/:productId
+// Header: token: "Bearer token"
+// Body
+{
+  title?: String;
+  description?: String;
+  price?: Number;
+}
+// Response: Status 200
 ```

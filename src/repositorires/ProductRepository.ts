@@ -16,8 +16,13 @@ export class ProductRepository extends Repository<Product> {
         currentPage: products.current_page,
         pagesNumber: products.last_page,
       },
-      data: products.data
+      data: products.data,
     };
     return formatedProducts;
+  }
+
+  public async findById(id: string) {
+    const product = await this.findOne({ where: { id } });
+    return product;
   }
 }
