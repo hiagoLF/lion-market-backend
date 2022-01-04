@@ -11,4 +11,13 @@ export class UserRepository extends Repository<User> {
     })
     return user
   }
+
+  public async findById(id: string){
+    const user = this.findOne({
+      where: {
+        id
+      }
+    })
+    return user
+  }
 }

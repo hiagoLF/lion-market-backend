@@ -1,6 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
+import { getCustomRepository } from "typeorm";
 import AppError from "../errors/AppError";
+import { UserRepository } from "../repositorires/UserRepository";
 import { getJwtSecret } from "../util/getJwtSecret";
 
 export async function authenticationMidleware(
@@ -14,11 +16,13 @@ export async function authenticationMidleware(
   const authTokenparts = authToken.split(" ");
   if (!authTokenparts[1]) throw new AppError("Malformated token");
 
-  try {
-    const secret = getJwtSecret();
-    const decoded = verify(authTokenparts[1], secret);
-    return next();
-  } catch {
-    throw new AppError("Invalid JWT Token.");
-  }
+  const secret = getJwtSecret();
+  const decoded = verify(authTokenparts[1], secret);
+
+  const userRepo = getCustomRepository(UserRepository);
+  const user = await userRepo.findById(decoded?.sub as string);
+  if (!user) throw new AppError("User not found");
+  if (!user.authorized) throw new AppError("User not authorized");
+
+  return next();
 }
