@@ -17,7 +17,6 @@ export async function authenticationMidleware(
   try {
     const secret = getJwtSecret();
     const decoded = verify(authTokenparts[1], secret);
-    console.log("Token aqui >>> ", decoded);
     return next();
   } catch {
     throw new AppError("Invalid JWT Token.");

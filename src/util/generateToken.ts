@@ -7,7 +7,7 @@ export function generateJWT(text: string) {
   if(!tokenSecret || !tokenExpiresIn) throw new AppError('Server broken: JWT not provided')
   const token = sign({}, tokenSecret, {
     subject: text,
-    expiresIn: tokenExpiresIn,
+    expiresIn: Number(tokenExpiresIn),
   });
   return token
 }
