@@ -14,11 +14,11 @@ createConnection();
 const app = express();
 
 app.use(bodyParser.json());
-app.use(pagination)
+app.use(pagination);
 
 app.use("/", appRoutes);
 
 app.use(expressAsyncErrors);
 app.use(celebrateErrors());
 
-app.listen(8001, () => console.log("Server is Running..."));
+app.listen(process.env.PORT || 8001, () => console.log("Server is Running..."));
