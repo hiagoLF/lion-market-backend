@@ -1,6 +1,7 @@
 import { getCustomRepository } from "typeorm";
 import AppError from "../../errors/AppError";
 import { ProductRepository } from "../../repositorires/ProductRepository";
+import { extractKeyFromImageUrl } from "../../util/extractKeyFromImageUrl";
 import { deleteFile } from "../images/removeImage";
 
 export async function updateProductImageUrl(
@@ -11,7 +12,9 @@ export async function updateProductImageUrl(
   const product = await productRepo.findById(productId);
   if(!product) throw new AppError('Product not found')
   if (product.imageUrl) {
-    const imageKey = product.imageUrl.slice(-44)
+
+    const imageKey = extractKeyFromImageUrl(product.imageUrl)
+
     console.log('Deletando >> ', imageKey)
     console.log('Tava nesse link >> ', product.imageUrl)
     deleteFile(imageKey)

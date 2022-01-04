@@ -14,6 +14,8 @@ export async function expressAsyncErrors(
     });
   }
 
+  console.error('Error: ' + err)
+
   return res.status(500).json({
     status: "error",
     message: err.message,

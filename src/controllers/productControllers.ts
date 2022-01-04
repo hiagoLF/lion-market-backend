@@ -46,8 +46,8 @@ export const productControllers = {
     if (!req.file) throw new AppError("Image not uploaded");
     const { productId } = req.params;
     // @ts-ignore
-    const imageUrl = req.file.location
+    const imageUrl = req.file.location;
     await updateProductImageUrl(productId, imageUrl);
-    return res.sendStatus(200)
+    return res.sendStatus(200);
   },
 };
