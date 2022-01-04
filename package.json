@@ -2,9 +2,12 @@
   "name": "lion-market-backend",
   "version": "1.0.0",
   "description": "Api to receive requests from lion-market app",
-  "main": "/src/index.ts",
+  "main": "src/index.ts",
   "author": "hiagolf",
   "license": "MIT",
+  "engines": {
+    "node": "16.13.1"
+  },
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
     "build": "tsc",
