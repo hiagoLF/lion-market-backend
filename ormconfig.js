@@ -24,6 +24,8 @@ const host =
     : process.env.DEVELOPMENT_POSTGRES_HOST;
 const url = process.env.DATABASE_URL;
 
+console.log();
+
 module.exports = {
   type: "postgres",
   // url: url,
@@ -33,7 +35,7 @@ module.exports = {
   password: password,
   database: dataBase,
   synchronize: true,
-  ssl: {
+  ssl: process.env.AMBIENT !== "development" && {
     rejectUnauthorized: false,
   },
   synchronize: true,

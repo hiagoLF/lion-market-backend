@@ -11,8 +11,8 @@ export async function registerUser(
   const userRepository = getCustomRepository(UserRepository);
   const user = await userRepository.findByLogin(login);
   if (!!user) throw new AppError("User already exists");
-  // const encryptedPassword = await encrypt(password)
-  const newUser = await userRepository.save({login, password})
+  const encryptedPassword = await encrypt(password)
+  const newUser = await userRepository.save({login, password: encryptedPassword})
   if(!newUser) throw new AppError('Não foi possível criar o usuário')
   return newUser
 }
