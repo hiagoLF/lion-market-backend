@@ -24,23 +24,17 @@ const host =
     : process.env.DEVELOPMENT_POSTGRES_HOST;
 const url = process.env.DATABASE_URL;
 
-console.log("userName", userName);
-console.log("password", password);
-console.log("dataBase", dataBase);
-console.log("host", host);
-console.log("entities >>> ", entities);
-console.log("databaseurl >>> ", url);
-
 module.exports = {
   type: "postgres",
-  // "url": url,
+  // url: url,
   host: host,
   port: 5432,
   username: userName,
   password: password,
   database: dataBase,
-  extra: {
-    ssl: true,
+  synchronize: true,
+  ssl: {
+    rejectUnauthorized: false,
   },
   synchronize: true,
   entities: [entities],
