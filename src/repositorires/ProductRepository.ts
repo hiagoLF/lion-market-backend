@@ -5,7 +5,7 @@ import { Product } from "../typeorm/entities/Products";
 export class ProductRepository extends Repository<Product> {
   public async findAllPaginated(page: number, title?: string) {
     console.log(title);
-    const products = await this.createQueryBuilder()
+    const products = await this.createQueryBuilder().orderBy('created_at', 'DESC')
       .where("LOWER(title) LIKE :title", {
         title: `%${title?.toLowerCase() || ""}%`,
       })
