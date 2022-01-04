@@ -1,7 +1,11 @@
-### Lion Market Backend
-NodeJs Api to built to receive requests from [lion-market](https://github.com/hiagoLF/lion-market) mobile app
+# Lion Market Backend
 
-* Main Tecnologies
+#### A NodeJs Api built to receive requests from [lion-market](https://github.com/hiagoLF/lion-market) mobile app
+
+<img src='./logo.png' style='max-height: 300px; border-radius: 10px;'/>
+
+
+- Main Tecnologies
   - express: Framework for server, routes and middlewares generations
   - aws-sdk: AWS Node integration
   - multer: Files Upload
@@ -13,8 +17,10 @@ NodeJs Api to built to receive requests from [lion-market](https://github.com/hi
   - pg: Postgres driver for Typeorm
 
 ### Running
+
 - First, do not forget to rename env.example to .env and place enviroment variables in it
 - The project was built using NodeJs v16.13.1 therefore try to run in the most compatible version
+
 ```bash
 # Install dependencies
 yarn install
@@ -67,7 +73,7 @@ yarn seed:run
 }
 ```
 
-###### Products
+###### Product
 
 ```js
 // Find Products Paginated
