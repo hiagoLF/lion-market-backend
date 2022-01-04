@@ -19,9 +19,17 @@ export const updateProductValidator = celebrate({
   [Segments.PARAMS]: Joi.object().keys({
     productId: Joi.string().required(),
   }),
-  [Segments.BODY]: Joi.object().keys({
-    title: Joi.string().min(2).max(40),
-    description: Joi.string().min(5).max(300),
-    price: Joi.number(),
-  }).min(1),
+  [Segments.BODY]: Joi.object()
+    .keys({
+      title: Joi.string().min(2).max(40),
+      description: Joi.string().min(5).max(300),
+      price: Joi.number(),
+    })
+    .min(1),
+});
+
+export const findProductByIdValidator = celebrate({
+  [Segments.PARAMS]: Joi.object().keys({
+    productId: Joi.string().required(),
+  }),
 });

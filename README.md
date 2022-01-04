@@ -90,4 +90,20 @@
   price?: Number;
 }
 // Response: Status 200
+
+
+// Find Product by Id
+// Method: GET
+// Endpoint: /product/:productId
+// Header: token: "Bearer token"
+// Response
+{
+  id: String
+  title: String,
+  description: String,
+  price: Number,
+  imageUrl: String,
+  created_at: Date
+  updated_at: Date;
+}
 ```

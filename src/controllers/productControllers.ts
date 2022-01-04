@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { createProduct } from "../services/product/createProduct";
+import { findProductById } from "../services/product/findProductById";
 import { findProducts } from "../services/product/findProducts";
 import { updateProduct } from "../services/product/updateProduct";
 
@@ -24,5 +25,11 @@ export const productControllers = {
     const data = req.body
     await updateProduct(productId, data)
     return res.sendStatus(200)
+  },
+
+  findProductById: async (req: Request, res: Response) => {
+    const { productId } = req.params;
+    const product = await findProductById(productId)
+    return res.status(200).json(product)
   },
 };
