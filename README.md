@@ -106,4 +106,11 @@
   created_at: Date
   updated_at: Date;
 }
+
+
+// Delete Product by Id
+// Method: DELETE
+// Endpoint: /product/:productId
+// Header: token: "Bearer token"
+// Response: Status 200
 ```

@@ -33,3 +33,9 @@ export const findProductByIdValidator = celebrate({
     productId: Joi.string().required(),
   }),
 });
+
+export const deleteProductValidator = celebrate({
+  [Segments.PARAMS]: Joi.object().keys({
+    productId: Joi.string().required(),
+  }),
+});
